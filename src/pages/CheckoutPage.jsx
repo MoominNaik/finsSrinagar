@@ -9,6 +9,7 @@ import {
     JapaneseFriesIllustration,
     CutletIllustration
 } from '../components/FoodIllustrations';
+import config from '../config';
 
 // Menu data - ideally this would be in a shared config
 const MENU_ITEMS = [
@@ -24,16 +25,14 @@ const CheckoutPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const initialItem = location.state?.selectedItem;
-
-    // Parse price string "₹230.00" to number 230
-    const parsePrice = (priceStr) => {
-        if (typeof priceStr === 'number') return priceStr;
-        if (!priceStr) return 0;
-        return parseFloat(priceStr.replace(/[^0-9.]/g, ''));
-    };
+    // Location data from the verification page
+    const verifiedLocation = location.state?.coordinates;
+    const phoneNumber = location.state?.phoneNumber;
 
     const [cart, setCart] = useState([]);
     const [mashPotatoCount, setMashPotatoCount] = useState(0);
+    const [status, setStatus] = useState('idle'); // idle, sending, error
+    const [errorMessage, setErrorMessage] = useState('');
 
     const MASH_POTATO_PRICE = 150;
 
@@ -76,6 +75,45 @@ const CheckoutPage = () => {
     };
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) + (mashPotatoCount * MASH_POTATO_PRICE);
+
+    const handleCheckout = async () => {
+        setErrorMessage('');
+
+        if (!phoneNumber) {
+            setErrorMessage('Phone number missing. Please verify location again.');
+            return;
+        }
+
+        setStatus('sending');
+
+        try {
+            const response = await fetch(`${config.API_URL}/api/send-order`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    cart,
+                    mashPotatoCount,
+                    total,
+                    userPhone: phoneNumber,
+                    location: verifiedLocation
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Navigate to Success Page instead of inline rendering
+                navigate('/order-success', { state: { phoneNumber } });
+            } else {
+                setStatus('error');
+                setErrorMessage(data.message || 'Failed to place order.');
+            }
+        } catch (err) {
+            console.error(err);
+            setStatus('error');
+            setErrorMessage('Network error. Please try again or call us.');
+        }
+    };
 
     return (
         <div className="min-h-screen bg-fins-dark relative overflow-hidden flex flex-col items-center justify-start pt-8 pb-20 px-4">
@@ -220,11 +258,25 @@ const CheckoutPage = () => {
                                 </div>
                             </div>
 
+                            {/* Error Message */}
+                            {errorMessage && (
+                                <div className="mb-4 bg-red-500/20 border border-red-500/50 rounded-lg p-3 text-red-200 text-sm text-center">
+                                    {errorMessage}
+                                </div>
+                            )}
+
                             <button
-                                className="w-full py-4 rounded-xl bg-fins-gold text-fins-dark font-bold uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg shadow-fins-gold/20"
-                                onClick={() => alert('Order Placed! Thank you for dining with Fins.')}
+                                className={`
+                                    w-full py-4 rounded-xl font-bold uppercase tracking-widest transition-all duration-300 shadow-lg 
+                                    ${status === 'sending'
+                                        ? 'bg-white/10 text-white cursor-wait'
+                                        : 'bg-fins-gold text-fins-dark hover:bg-white hover:scale-105 shadow-fins-gold/20'
+                                    }
+                                `}
+                                onClick={handleCheckout}
+                                disabled={status === 'sending'}
                             >
-                                Checkout
+                                {status === 'sending' ? 'Placing Order...' : 'Checkout'}
                             </button>
 
                             <p className="text-center text-white/30 text-xs mt-4">
