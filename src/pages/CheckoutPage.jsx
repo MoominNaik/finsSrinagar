@@ -13,12 +13,12 @@ import config from '../config';
 
 // Menu data - ideally this would be in a shared config
 const MENU_ITEMS = [
-    { title: 'Boneless Fish + Fries', price: 249, Illustration: BonelessFishIllustration },
-    { title: 'Trout + Fries', price: 249, Illustration: TroutIllustration },
-    { title: 'Butter Garlic Fish', price: 249, Illustration: ButterGarlicIllustration },
-    { title: 'Masala Trout Fish', price: 249, Illustration: MasalaTroutIllustration },
-    { title: 'Japanese Fries', price: 249, Illustration: JapaneseFriesIllustration },
-    { title: 'Fish Cutlet / Nuggets', price: 249, Illustration: CutletIllustration },
+    { title: 'Boneless Fish + Fries', price: 279, Illustration: BonelessFishIllustration },
+    { title: 'Trout + Fries', price: 279, Illustration: TroutIllustration },
+    { title: 'Butter Garlic Fish', price: 279, Illustration: ButterGarlicIllustration },
+    { title: 'Masala Trout Fish', price: 279, Illustration: MasalaTroutIllustration },
+    { title: 'Japanese Fries', price: 279, Illustration: JapaneseFriesIllustration },
+    { title: 'Fish Cutlet / Nuggets', price: 279, Illustration: CutletIllustration },
 ];
 
 const CheckoutPage = () => {
@@ -41,7 +41,7 @@ const CheckoutPage = () => {
         if (initialItem) {
             setCart([{
                 ...initialItem,
-                price: 249, // Enforce current pricing
+                price: 279, // Enforce current pricing
                 quantity: 1
             }]);
         }
@@ -59,7 +59,7 @@ const CheckoutPage = () => {
                 );
             } else {
                 // Add New Item
-                return [...prevCart, { ...item, price: 249, quantity: 1 }];
+                return [...prevCart, { ...item, price: 279, quantity: 1 }];
             }
         });
     };

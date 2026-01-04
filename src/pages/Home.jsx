@@ -28,7 +28,7 @@ const Home = () => {
                                 Every Item
                             </span>
                             <span className="text-white font-bold text-xl md:text-3xl tracking-tight">
-                                ₹249
+                                ₹279
                             </span>
                             <span className="w-1.5 h-1.5 rounded-full bg-fins-gold/60" />
                         </div>
@@ -52,39 +52,39 @@ const Home = () => {
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-4">
                     <SelectionCard
                         title="Boneless Fish + Fries"
-                        price="₹249.00"
+                        price="₹279.00"
                         Illustration={BonelessFishIllustration}
-                        onClick={() => handleSelect({ title: 'Boneless Fish + Fries', price: '₹249.00' })}
+                        onClick={() => handleSelect({ title: 'Boneless Fish + Fries', price: '₹279.00' })}
                     />
                     <SelectionCard
                         title="Trout + Fries"
-                        price="₹249.00"
+                        price="₹279.00"
                         Illustration={TroutIllustration}
-                        onClick={() => handleSelect({ title: 'Trout + Fries', price: '₹249.00' })}
+                        onClick={() => handleSelect({ title: 'Trout + Fries', price: '₹279.00' })}
                     />
                     <SelectionCard
                         title="Butter Garlic Fish"
-                        price="₹249.00"
+                        price="₹279.00"
                         Illustration={ButterGarlicIllustration}
-                        onClick={() => handleSelect({ title: 'Butter Garlic Fish', price: '₹249.00' })}
+                        onClick={() => handleSelect({ title: 'Butter Garlic Fish', price: '₹279.00' })}
                     />
                     <SelectionCard
                         title="Masala Trout Fish"
-                        price="₹249.00"
+                        price="₹279.00"
                         Illustration={MasalaTroutIllustration}
-                        onClick={() => handleSelect({ title: 'Masala Trout Fish', price: '₹249.00' })}
+                        onClick={() => handleSelect({ title: 'Masala Trout Fish', price: '₹279.00' })}
                     />
                     <SelectionCard
                         title="Japanese Fries"
-                        price="₹249.00"
+                        price="₹279.00"
                         Illustration={JapaneseFriesIllustration}
-                        onClick={() => handleSelect({ title: 'Japanese Fries', price: '₹249.00' })}
+                        onClick={() => handleSelect({ title: 'Japanese Fries', price: '₹279.00' })}
                     />
                     <SelectionCard
                         title="Fish Cutlet / Nuggets"
-                        price="₹249.00"
+                        price="₹279.00"
                         Illustration={CutletIllustration}
-                        onClick={() => handleSelect({ title: 'Fish Cutlet / Nuggets', price: '₹249.00' })}
+                        onClick={() => handleSelect({ title: 'Fish Cutlet / Nuggets', price: '₹279.00' })}
                     />
                 </div>
 
