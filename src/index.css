@@ -15,6 +15,7 @@
   --animate-float-medium: float 5s ease-in-out infinite;
   --animate-shimmer: shimmer 3s linear infinite;
   --animate-pulse-border: pulse-border 4s ease-in-out infinite;
+  --animate-marquee: marquee 15s linear infinite;
 
   @keyframes swim {
     0% {
@@ -87,6 +88,16 @@
       border-color: rgba(252, 203, 6, 0.4);
       /* fins-gold */
       box-shadow: 0 0 0 rgba(252, 203, 6, 0);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
     }
   }
 }

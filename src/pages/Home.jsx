@@ -13,13 +13,25 @@ const Home = () => {
     };
 
     return (
-        <div className="min-h-screen bg-fins-dark relative overflow-hidden flex flex-col items-center justify-start pt-12 md:pt-16 p-4 selection:bg-fins-gold/30">
+        <div className="min-h-screen bg-fins-dark relative overflow-hidden flex flex-col items-center justify-start pt-0 p-4 selection:bg-fins-gold/30">
 
             {/* Background Animation */}
             <BackgroundAnimation />
 
+            {/* Animated Banner */}
+            <div className="w-full bg-gradient-to-r from-fins-gold via-yellow-400 to-fins-gold py-3 md:py-4 overflow-hidden relative z-20 shadow-lg shadow-fins-gold/20">
+                <div className="animate-marquee whitespace-nowrap flex items-center gap-8 md:gap-12">
+                    <span className="text-fins-dark font-bold text-lg md:text-2xl tracking-wider">✨ EVERY SINGLE ITEM AT ₹249 ✨</span>
+                    <span className="text-fins-dark/80 font-medium text-sm md:text-lg">🔥 Limited Time Offer</span>
+                    <span className="text-fins-dark font-bold text-lg md:text-2xl tracking-wider">✨ EVERY SINGLE ITEM AT ₹249 ✨</span>
+                    <span className="text-fins-dark/80 font-medium text-sm md:text-lg">🔥 Limited Time Offer</span>
+                    <span className="text-fins-dark font-bold text-lg md:text-2xl tracking-wider">✨ EVERY SINGLE ITEM AT ₹249 ✨</span>
+                    <span className="text-fins-dark/80 font-medium text-sm md:text-lg">🔥 Limited Time Offer</span>
+                </div>
+            </div>
+
             {/* Main Content Container */}
-            <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-12 md:gap-16 relative z-10">
+            <div className="w-full max-w-6xl mx-auto flex flex-col items-center gap-12 md:gap-16 relative z-10 pt-8 md:pt-12">
 
                 {/* Logo Section - Top Centered */}
                 <div className="flex flex-col items-center justify-center hover:scale-105 transition-transform duration-500 cursor-default">
@@ -34,39 +46,39 @@ const Home = () => {
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-4">
                     <SelectionCard
                         title="Boneless Fish + Fries"
-                        price="₹290.00"
+                        price="₹249.00"
                         Illustration={BonelessFishIllustration}
-                        onClick={() => handleSelect({ title: 'Boneless Fish + Fries', price: '₹290.00' })}
+                        onClick={() => handleSelect({ title: 'Boneless Fish + Fries', price: '₹249.00' })}
                     />
                     <SelectionCard
                         title="Trout + Fries"
-                        price="₹290.00"
+                        price="₹249.00"
                         Illustration={TroutIllustration}
-                        onClick={() => handleSelect({ title: 'Trout + Fries', price: '₹290.00' })}
+                        onClick={() => handleSelect({ title: 'Trout + Fries', price: '₹249.00' })}
                     />
                     <SelectionCard
                         title="Butter Garlic Fish"
-                        price="₹290.00"
+                        price="₹249.00"
                         Illustration={ButterGarlicIllustration}
-                        onClick={() => handleSelect({ title: 'Butter Garlic Fish', price: '₹290.00' })}
+                        onClick={() => handleSelect({ title: 'Butter Garlic Fish', price: '₹249.00' })}
                     />
                     <SelectionCard
                         title="Masala Trout Fish"
-                        price="₹290.00"
+                        price="₹249.00"
                         Illustration={MasalaTroutIllustration}
-                        onClick={() => handleSelect({ title: 'Masala Trout Fish', price: '₹290.00' })}
+                        onClick={() => handleSelect({ title: 'Masala Trout Fish', price: '₹249.00' })}
                     />
                     <SelectionCard
                         title="Japanese Fries"
-                        price="₹290.00"
+                        price="₹249.00"
                         Illustration={JapaneseFriesIllustration}
-                        onClick={() => handleSelect({ title: 'Japanese Fries', price: '₹290.00' })}
+                        onClick={() => handleSelect({ title: 'Japanese Fries', price: '₹249.00' })}
                     />
                     <SelectionCard
                         title="Fish Cutlet / Nuggets"
-                        price="₹290.00"
+                        price="₹249.00"
                         Illustration={CutletIllustration}
-                        onClick={() => handleSelect({ title: 'Fish Cutlet / Nuggets', price: '₹290.00' })}
+                        onClick={() => handleSelect({ title: 'Fish Cutlet / Nuggets', price: '₹249.00' })}
                     />
                 </div>
 
