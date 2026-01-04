@@ -100,6 +100,7 @@ const CheckoutPage = () => {
             });
 
             const data = await response.json();
+            console.log('API Response:', data); // DEBUG: Log full response
 
             if (data.success) {
                 // Navigate to Success Page instead of inline rendering
