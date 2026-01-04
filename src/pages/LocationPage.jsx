@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import BackgroundAnimation from '../components/BackgroundAnimation';
 
 const STORE_COORDS = { lat: 34.0711, lng: 74.8463 }; // Sonwar
-const MAX_RADIUS_KM = 5;
+const MAX_RADIUS_KM = 10;
 
 const LocationPage = () => {
     const navigate = useNavigate();
@@ -165,7 +165,8 @@ const LocationPage = () => {
                 selectedItem,
                 coordinates,
                 distance,
-                phoneNumber
+                phoneNumber,
+                address: manualAddress || 'GPS Location'
             }
         });
     };

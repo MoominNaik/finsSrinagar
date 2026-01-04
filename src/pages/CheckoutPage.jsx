@@ -28,6 +28,7 @@ const CheckoutPage = () => {
     // Location data from the verification page
     const verifiedLocation = location.state?.coordinates;
     const phoneNumber = location.state?.phoneNumber;
+    const userAddress = location.state?.address;
 
     const [cart, setCart] = useState([]);
     const [mashPotatoCount, setMashPotatoCount] = useState(0);
@@ -95,7 +96,8 @@ const CheckoutPage = () => {
                     mashPotatoCount,
                     total,
                     userPhone: phoneNumber,
-                    location: verifiedLocation
+                    location: verifiedLocation,
+                    address: userAddress
                 })
             });
 
