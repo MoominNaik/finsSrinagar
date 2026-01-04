@@ -18,15 +18,21 @@ const Home = () => {
             {/* Background Animation */}
             <BackgroundAnimation />
 
-            {/* Animated Banner */}
-            <div className="w-full bg-gradient-to-r from-fins-gold via-yellow-400 to-fins-gold py-3 md:py-4 overflow-hidden relative z-20 shadow-lg shadow-fins-gold/20">
-                <div className="animate-marquee whitespace-nowrap flex items-center gap-8 md:gap-12">
-                    <span className="text-fins-dark font-bold text-lg md:text-2xl tracking-wider">✨ EVERY SINGLE ITEM AT ₹249 ✨</span>
-                    <span className="text-fins-dark/80 font-medium text-sm md:text-lg">🔥 Limited Time Offer</span>
-                    <span className="text-fins-dark font-bold text-lg md:text-2xl tracking-wider">✨ EVERY SINGLE ITEM AT ₹249 ✨</span>
-                    <span className="text-fins-dark/80 font-medium text-sm md:text-lg">🔥 Limited Time Offer</span>
-                    <span className="text-fins-dark font-bold text-lg md:text-2xl tracking-wider">✨ EVERY SINGLE ITEM AT ₹249 ✨</span>
-                    <span className="text-fins-dark/80 font-medium text-sm md:text-lg">🔥 Limited Time Offer</span>
+            {/* Promotional Banner */}
+            <div className="w-screen -mx-4 bg-fins-dark border-y border-fins-gold/30 relative z-20 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-fins-gold/5 via-fins-gold/10 to-fins-gold/5" />
+                <div className="animate-marquee whitespace-nowrap flex items-center py-3 md:py-4">
+                    {[...Array(6)].map((_, i) => (
+                        <div key={i} className="flex items-center gap-6 md:gap-10 mx-6 md:mx-10">
+                            <span className="text-fins-gold font-serif text-sm md:text-lg tracking-[0.15em] uppercase">
+                                Every Item
+                            </span>
+                            <span className="text-white font-bold text-xl md:text-3xl tracking-tight">
+                                ₹249
+                            </span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-fins-gold/60" />
+                        </div>
+                    ))}
                 </div>
             </div>
 
