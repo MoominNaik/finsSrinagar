@@ -159,6 +159,11 @@ const LocationPage = () => {
     };
 
     const handleNext = () => {
+        if (!manualAddress.trim()) {
+            setErrorMessage('Please enter your specific delivery address.');
+            setStatus('error');
+            return;
+        }
         // Navigate to checkout with the verified data
         navigate('/checkout', {
             state: {
@@ -166,7 +171,7 @@ const LocationPage = () => {
                 coordinates,
                 distance,
                 phoneNumber,
-                address: manualAddress || 'GPS Location'
+                address: manualAddress
             }
         });
     };
@@ -314,9 +319,30 @@ const LocationPage = () => {
                             <span className="text-xs opacity-80">{distance}km from Sonwar</span>
                         </div>
 
+                        {/* Mandatory Specific Address Input */}
+                        <div className="space-y-2 text-left">
+                            <label className="text-potato/60 text-xs uppercase tracking-widest ml-1 font-medium">Specific Delivery Address</label>
+                            <input
+                                type="text"
+                                value={manualAddress}
+                                onChange={(e) => setManualAddress(e.target.value)}
+                                placeholder="Flat No. / House Name / Landmark"
+                                className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-4 text-white placeholder-white/20 focus:outline-none focus:border-fins-gold transition-colors"
+                                autoFocus
+                            />
+                            <p className="text-[10px] text-potato/40 italic ml-1">* Compulsory for delivery person to find you.</p>
+                        </div>
+
                         <button
                             onClick={handleNext}
-                            className="w-full py-4 rounded-full bg-white text-fins-dark font-bold uppercase tracking-widest hover:bg-fins-gold hover:scale-105 transition-all duration-300 shadow-xl"
+                            disabled={!manualAddress.trim()}
+                            className={`
+                                w-full py-4 rounded-full font-bold uppercase tracking-widest transition-all duration-300 shadow-xl
+                                ${!manualAddress.trim()
+                                    ? 'bg-white/10 text-white/30 cursor-not-allowed'
+                                    : 'bg-white text-fins-dark hover:bg-fins-gold hover:scale-105'
+                                }
+                            `}
                         >
                             Proceed to Order
                         </button>
