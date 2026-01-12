@@ -2,7 +2,15 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import SelectionCard from '../components/SelectionCard';
 import BackgroundAnimation from '../components/BackgroundAnimation';
-import { BonelessFishIllustration, TroutIllustration, ButterGarlicIllustration, MasalaTroutIllustration, JapaneseFriesIllustration, CutletIllustration } from '../components/FoodIllustrations';
+import {
+    BonelessFishIllustration,
+    TroutIllustration,
+    ButterGarlicIllustration,
+    MasalaTroutIllustration,
+    JapaneseFriesIllustration,
+    CutletIllustration,
+    PeriPeriFriesIllustration
+} from '../components/FoodIllustrations';
 import MarketingSection from '../components/MarketingSection';
 
 const Home = () => {
@@ -25,10 +33,10 @@ const Home = () => {
                     {[...Array(6)].map((_, i) => (
                         <div key={i} className="flex items-center gap-6 md:gap-10 mx-6 md:mx-10">
                             <span className="text-fins-gold font-serif text-sm md:text-lg tracking-[0.15em] uppercase">
-                                Every Item
+                                Freshly Caught
                             </span>
                             <span className="text-white font-bold text-xl md:text-3xl tracking-tight">
-                                ₹279
+                                PREMIUM SEAFOOD
                             </span>
                             <span className="w-1.5 h-1.5 rounded-full bg-fins-gold/60" />
                         </div>
@@ -49,60 +57,53 @@ const Home = () => {
                 </div>
 
                 {/* Cards Container */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-4">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 px-4">
                     <SelectionCard
-                        title="Boneless Fish + Fries"
+                        title="Pangasius fish and chips"
                         price="₹279.00"
                         Illustration={BonelessFishIllustration}
-                        onClick={() => handleSelect({ title: 'Boneless Fish + Fries', price: '₹279.00' })}
+                        onClick={() => handleSelect({ title: 'Pangasius fish and chips', price: 279 })}
                     />
                     <SelectionCard
-                        title="Trout + Fries"
-                        price="₹279.00"
+                        title="Trout fish and chips"
+                        price="₹329.00"
                         Illustration={TroutIllustration}
-                        onClick={() => handleSelect({ title: 'Trout + Fries', price: '₹279.00' })}
+                        onClick={() => handleSelect({ title: 'Trout fish and chips', price: 329 })}
                     />
                     <SelectionCard
-                        title="Butter Garlic Fish"
-                        price="₹279.00"
+                        title="Butter garlic fish"
+                        price="₹299.00"
                         Illustration={ButterGarlicIllustration}
-                        onClick={() => handleSelect({ title: 'Butter Garlic Fish', price: '₹279.00' })}
+                        onClick={() => handleSelect({ title: 'Butter garlic fish', price: 299 })}
                     />
                     <SelectionCard
-                        title="Masala Trout Fish"
-                        price="₹279.00"
+                        title="Masala Fish"
+                        price="₹299.00"
                         Illustration={MasalaTroutIllustration}
-                        onClick={() => handleSelect({ title: 'Masala Trout Fish', price: '₹279.00' })}
+                        onClick={() => handleSelect({ title: 'Masala Fish', price: 299 })}
+                    />
+                    <SelectionCard
+                        title="Fish Cutlets"
+                        price="₹299.00"
+                        Illustration={CutletIllustration}
+                        onClick={() => handleSelect({ title: 'Fish Cutlets', price: 299 })}
+                    />
+                    <SelectionCard
+                        title="Peri Peri Fries"
+                        price="₹79.00"
+                        Illustration={PeriPeriFriesIllustration}
+                        onClick={() => handleSelect({ title: 'Peri Peri Fries', price: 79 })}
                     />
                     <SelectionCard
                         title="Japanese Fries"
-                        price="₹279.00"
+                        price="₹79.00"
                         Illustration={JapaneseFriesIllustration}
-                        onClick={() => handleSelect({ title: 'Japanese Fries', price: '₹279.00' })}
-                    />
-                    <SelectionCard
-                        title="Fish Cutlet / Nuggets"
-                        price="₹279.00"
-                        Illustration={CutletIllustration}
-                        onClick={() => handleSelect({ title: 'Fish Cutlet / Nuggets', price: '₹279.00' })}
+                        onClick={() => handleSelect({ title: 'Japanese Fries', price: 79 })}
                     />
                 </div>
 
                 {/* Marketing Section */}
                 <MarketingSection />
-
-                {/* Footer/Tagline */}
-                {/*
-                <div className="w-full flex justify-center opacity-60">
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-potato font-light tracking-[0.2em] text-xs md:text-sm uppercase text-center">
-                        <span>Crisp Batter</span>
-                        <span className="hidden md:inline">•</span>
-                        <span>Flaky Fish</span>
-                        <span className="hidden md:inline">•</span>
-                        <span>Perfect Chips</span>
-                    </div>
-                </div>
-                */}
 
             </div>
         </div>
@@ -110,3 +111,4 @@ const Home = () => {
 };
 
 export default Home;
+

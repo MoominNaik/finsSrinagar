@@ -7,18 +7,20 @@ import {
     ButterGarlicIllustration,
     MasalaTroutIllustration,
     JapaneseFriesIllustration,
-    CutletIllustration
+    CutletIllustration,
+    PeriPeriFriesIllustration
 } from '../components/FoodIllustrations';
 import config from '../config';
 
-// Menu data - ideally this would be in a shared config
+// Menu data
 const MENU_ITEMS = [
-    { title: 'Boneless Fish + Fries', price: 279, Illustration: BonelessFishIllustration },
-    { title: 'Trout + Fries', price: 279, Illustration: TroutIllustration },
-    { title: 'Butter Garlic Fish', price: 279, Illustration: ButterGarlicIllustration },
-    { title: 'Masala Trout Fish', price: 279, Illustration: MasalaTroutIllustration },
-    { title: 'Japanese Fries', price: 279, Illustration: JapaneseFriesIllustration },
-    { title: 'Fish Cutlet / Nuggets', price: 279, Illustration: CutletIllustration },
+    { title: 'Pangasius fish and chips', price: 279, Illustration: BonelessFishIllustration },
+    { title: 'Trout fish and chips', price: 329, Illustration: TroutIllustration },
+    { title: 'Butter garlic fish', price: 299, Illustration: ButterGarlicIllustration },
+    { title: 'Masala Fish', price: 299, Illustration: MasalaTroutIllustration },
+    { title: 'Fish Cutlets', price: 299, Illustration: CutletIllustration },
+    { title: 'Peri Peri Fries', price: 79, Illustration: PeriPeriFriesIllustration },
+    { title: 'Japanese Fries', price: 79, Illustration: JapaneseFriesIllustration },
 ];
 
 const CheckoutPage = () => {
@@ -41,7 +43,6 @@ const CheckoutPage = () => {
         if (initialItem) {
             setCart([{
                 ...initialItem,
-                price: 279, // Enforce current pricing
                 quantity: 1
             }]);
         }
@@ -59,10 +60,11 @@ const CheckoutPage = () => {
                 );
             } else {
                 // Add New Item
-                return [...prevCart, { ...item, price: 279, quantity: 1 }];
+                return [...prevCart, { ...item, quantity: 1 }];
             }
         });
     };
+
 
     const removeFromCart = (title) => {
         setCart(prevCart => {

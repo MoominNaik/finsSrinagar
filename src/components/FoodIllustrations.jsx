@@ -204,3 +204,33 @@ export const CutletIllustration = ({ className }) => (
         </g>
     </svg>
 );
+export const PeriPeriFriesIllustration = ({ className }) => (
+    <svg viewBox="0 0 200 160" className={className} xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="glow-gold-7" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </defs>
+        <g className="animate-float-slow">
+            {/* Container */}
+            <path d="M70 140 L50 60 H150 L130 140 H70 Z" fill="none" stroke="#fccb06" strokeWidth="3" />
+
+            {/* Reddish Fries */}
+            <rect x="60" y="20" width="10" height="80" fill="#ff4d00" stroke="#0B2545" strokeWidth="2" filter="url(#glow-gold-7)" transform="rotate(-15 65 60)" />
+            <rect x="85" y="10" width="10" height="90" fill="#fccb06" stroke="#0B2545" strokeWidth="2" filter="url(#glow-gold-7)" />
+            <rect x="110" y="15" width="10" height="85" fill="#ff4d00" stroke="#0B2545" strokeWidth="2" filter="url(#glow-gold-7)" transform="rotate(10 115 60)" />
+            <rect x="130" y="30" width="10" height="70" fill="#fccb06" stroke="#0B2545" strokeWidth="2" filter="url(#glow-gold-7)" transform="rotate(25 135 65)" />
+
+            {/* Spice Dusting */}
+            <circle cx="90" cy="60" r="1.5" fill="#0B2545" opacity="0.8" />
+            <circle cx="95" cy="70" r="1.5" fill="#ff4d00" opacity="0.8" />
+            <circle cx="115" cy="40" r="1.5" fill="#0B2545" opacity="0.8" />
+            <circle cx="85" cy="30" r="1.5" fill="#ff4d00" opacity="0.8" />
+        </g>
+    </svg>
+);
+
